@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1cd3a3fe97e3b0a4f8ff2bd0fd09de09
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Stone Tomb
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 996ce746ce731c24c99eb56410a0ab3b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 1
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
