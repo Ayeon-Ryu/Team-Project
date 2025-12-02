@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class PlayerLook : MonoBehaviour
 {
     public float mouseSensitivity = 300f;
@@ -14,9 +14,10 @@ public class PlayerLook : MonoBehaviour
     float pitchVelocity;
     float yawVelocity;
 
-    void Awake()
+    IEnumerator Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        yield return null; // 한 프레임 대기
+
         string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
         if (sceneName == "gameoverscene" || sceneName == "startscene" || sceneName == "clearscenereal")
@@ -24,7 +25,7 @@ public class PlayerLook : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else // GameOver / Clear / Start 씬
+        else
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -39,10 +40,8 @@ public class PlayerLook : MonoBehaviour
         yaw += mouseX;
         pitch -= mouseY;
 
-        // 오버워치식 pitch 제한
         pitch = Mathf.Clamp(pitch, -82f, 82f);
 
-        // 부드러운 보간 → 카메라 감각을 오버워치처럼 만들기
         currentYaw = Mathf.SmoothDamp(currentYaw, yaw, ref yawVelocity, smoothTime);
         currentPitch = Mathf.SmoothDamp(currentPitch, pitch, ref pitchVelocity, smoothTime);
 

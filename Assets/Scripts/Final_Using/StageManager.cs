@@ -11,9 +11,10 @@ public class StageManager : MonoBehaviour
     public int score1 = 0;
     public int score2 = 0;
 
-    [Header("UI Sprites")]
+   
     public List<GameObject> score1Sprites; // score1 증가용
     public List<GameObject> score2Sprites; // score2 감소용
+    public GameObject bbiui;
 
     [Header("Player")]
     public GameObject playerPrefab;
@@ -31,6 +32,8 @@ public class StageManager : MonoBehaviour
     private GameObject currentStageObj;
     private bool isGenshou;
     private int activeGenshouIndex = -1;
+
+   
 
     private void Awake()
     {
@@ -205,6 +208,18 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    private IEnumerator BlinkUI(GameObject bbiui, int times, float interval)
+    {
+        for (int i = 0; i < times; i++)
+        {
+            bbiui.SetActive(false);
+            yield return new WaitForSeconds(interval);
+            bbiui.SetActive(true);
+            yield return new WaitForSeconds(interval);
+        }
+        bbiui.SetActive(false); // 마지막에는 UI 숨김
+    }
+
     public void OnTriggerHit(bool isFrontTrigger)
     {
         bool correct = (isFrontTrigger && !isGenshou) || (!isFrontTrigger && isGenshou);
@@ -241,6 +256,7 @@ public class StageManager : MonoBehaviour
             consecutiveWrong++;
             consecutiveCorrect = 0;
             score2 -= 1; // 실패 점수
+            
             Debug.Log($"실패! 점수 -1 | 현재 점수: {score2}");
             Debug.Log($"Wrong answer! ConsecutiveWrong: {consecutiveWrong}");
             UpdateScoreUI(); // UI 갱신
@@ -280,6 +296,11 @@ public class StageManager : MonoBehaviour
                     currentStage = 1;
                     Debug.Log("Stage2 이후 2회 오답! Loading Stage1Scene-2");
                     SceneManager.LoadScene("Stage1Scene-2");
+                    
+                       
+                        
+                    
+
                 }
             }
         }
