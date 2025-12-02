@@ -240,7 +240,7 @@ public class StageManager : MonoBehaviour
             Debug.Log($"성공! 점수 +1 | 현재 점수: {score1}");
             // 오답 수는 유지
             UpdateScoreUI(); // UI 갱신
-            if (currentStage >= 8)
+            if (currentStage >= 7)
             {
                 Debug.Log("Stage cleared! Loading Clear scene.");
                 SceneManager.LoadScene("clearscenereal");
