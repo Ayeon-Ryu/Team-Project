@@ -290,6 +290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classroom_Genshou03
       objectReference: {fileID: 0}
+    - target: {fileID: 4418791886249369237, guid: ec4ea0d25fc6c4544bc7b6f1c3d01e8e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8603117251954864105, guid: ec4ea0d25fc6c4544bc7b6f1c3d01e8e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -31.924881
@@ -389,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5517586687850805779, guid: dd64eac41081b5d44a780355d1c26101, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -448,6 +452,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classroom_Genshou06
       objectReference: {fileID: 0}
+    - target: {fileID: 2955321919612842557, guid: 11ba305bea7fff24e8587b9a9639249f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -467,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 748703428882752207, guid: 7edef2f819c535644bdccab79df0a775, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8409968133121876519, guid: 7edef2f819c535644bdccab79df0a775, type: 3}
       propertyPath: m_LocalPosition.x
@@ -528,7 +536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5784744606110673497, guid: 217f00f6151706042b68862ac5034544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6154295740860634618, guid: 217f00f6151706042b68862ac5034544, type: 3}
       propertyPath: m_LocalPosition.x
@@ -589,7 +597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2863612747124738738, guid: 80bc042693fe1744182584c8759ad4d7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3932625161137157191, guid: 80bc042693fe1744182584c8759ad4d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -651,6 +659,10 @@ PrefabInstance:
     - target: {fileID: 3168184115520657787, guid: 51cbb9d8d6219a04daf5e7547aa98050, type: 3}
       propertyPath: m_Name
       value: Classroom_Normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3168184115520657787, guid: 51cbb9d8d6219a04daf5e7547aa98050, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6231709833512680367, guid: 51cbb9d8d6219a04daf5e7547aa98050, type: 3}
       propertyPath: faceVisual
@@ -791,7 +803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4925531072231436814, guid: e674943a23b07b74b97c1cff5bbe5753, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -913,7 +925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3625460985206217577, guid: 394da4a3ab4992f4bbce9b9191195d1a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890008682567310743, guid: 394da4a3ab4992f4bbce9b9191195d1a, type: 3}
       propertyPath: player
@@ -980,6 +992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classroom_Genshou02
       objectReference: {fileID: 0}
+    - target: {fileID: 8089236640438413332, guid: d43ab7278a0f2704e8e18e905d53c958, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1003,7 +1019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337767210063304546, guid: bd338370ae12bf04a84305d404ad66a6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6158429549220879380, guid: bd338370ae12bf04a84305d404ad66a6, type: 3}
       propertyPath: player
@@ -1069,6 +1085,10 @@ PrefabInstance:
     - target: {fileID: 6833525959173875667, guid: 98e8bb61e63420346a62af9d00423b83, type: 3}
       propertyPath: m_Name
       value: Classroom_Genshou05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833525959173875667, guid: 98e8bb61e63420346a62af9d00423b83, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8336869956531374438, guid: 98e8bb61e63420346a62af9d00423b83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1137,7 +1157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6326096899741183104, guid: 5ee4e95294e45e342be2fe57c8d6c34d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7402304131471141611, guid: 5ee4e95294e45e342be2fe57c8d6c34d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1239,6 +1259,10 @@ PrefabInstance:
     - target: {fileID: 6333465398955196972, guid: cd8c9db4b12491a4d84e1d3203b948c1, type: 3}
       propertyPath: m_Name
       value: Classroom_Genshou04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333465398955196972, guid: cd8c9db4b12491a4d84e1d3203b948c1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

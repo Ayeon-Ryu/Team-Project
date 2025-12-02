@@ -17,7 +17,7 @@ public class Trigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         if (manager == null) return;
 
-        bool hasEvent = (manager.currentEvent != null) || (manager.genshou06.IsActive);
+        bool hasEvent = (manager.currentEvent != null) || (manager.genshou06 != null && manager.genshou06.IsActive);//문밖에나갔을떄오류코드뜨는거고치는코드
 
         // 앞/뒤 트리거 판정
         if (triggerType == TriggerType.Front)
