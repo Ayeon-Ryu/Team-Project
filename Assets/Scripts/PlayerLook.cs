@@ -14,9 +14,21 @@ public class PlayerLook : MonoBehaviour
     float pitchVelocity;
     float yawVelocity;
 
-    void Start()
+    void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        if (sceneName == "gameoverscene" || sceneName == "startscene" || sceneName == "clearscenereal")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else // GameOver / Clear / Start ¾À
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     void Update()

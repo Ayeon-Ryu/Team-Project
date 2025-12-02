@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Stage Scene/Stage_final_using/Clear.unity
     guid: 024b6b71b5c4a7b40b2697c2948a6dbc
   - enabled: 1
+    path: Assets/C part/Scenes/startscene.unity
+    guid: f89513f6ee5560341917ca3645957fca
+  - enabled: 1
+    path: Assets/C part/Scenes/gameoverscene.unity
+    guid: 65790589d8871fb4ba5bdfdef3b954ef
+  - enabled: 1
+    path: Assets/C part/Scenes/clearscenereal.unity
+    guid: 634c41117f48a1940933d58845b6f252
+  - enabled: 1
     path: Assets/Stage Scene/Stage_final_using/GameOver.unity
     guid: 76fb54e535c4ddc43bdd5e95c8e9d2d8
   - enabled: 1

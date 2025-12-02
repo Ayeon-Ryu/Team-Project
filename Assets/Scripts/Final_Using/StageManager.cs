@@ -1,10 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.SocialPlatforms.Impl;
+using System.Collections.Generic;
 
 public class StageManager : MonoBehaviour
 {
     public static StageManager Instance;
+
+    public int score1 = 0;
+    public int score2 = 0;
+
+    [Header("UI Sprites")]
+    public List<GameObject> score1Sprites; // score1 증가용
+    public List<GameObject> score2Sprites; // score2 감소용
 
     [Header("Player")]
     public GameObject playerPrefab;
@@ -25,6 +34,7 @@ public class StageManager : MonoBehaviour
 
     private void Awake()
     {
+       
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -48,9 +58,55 @@ public class StageManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (!scene.name.Contains("Stage")) return;
-        StartCoroutine(SetupStage());
+        if (scene.name == "gameoverscene")
+        {
+            Debug.Log("GameOver scene -> StageManager 제거");
+
+            // 1) 먼저 커서를 보이게 하기
+            
+            if (player != null)
+                Destroy(player.gameObject);
+
+            Destroy(gameObject); // ★ StageManager 완전히 제거
+
+            return;
+        }
+
+        // 2) Clear 씬 처리
+        if (scene.name == "clearscenereal")
+        {
+            Debug.Log("Clear scene -> StageManager 동작 중지");
+            // 1) 먼저 커서를 보이게 하기
+           
+            if (player != null)
+                Destroy(player.gameObject);
+
+            Destroy(gameObject); // ★ StageManager 완전히 제거
+
+            return;
+        }
+
+        // 3) Start 씬 처리
+        if (scene.name == "startscene")
+        {
+            Debug.Log("Start scene -> StageManager 동작 중지");
+            // 1) 먼저 커서를 보이게 하기
+           
+            if (player != null)
+                Destroy(player.gameObject);
+
+            Destroy(gameObject); // ★ StageManager 완전히 제거
+
+            return;
+        }
+
+        // 4) 나머지는 스테이지 씬만 처리
+        if (scene.name.Contains("Stage"))
+        {
+            StartCoroutine(SetupStage());
+        }
     }
+
 
     private void EnsurePlayer()
     {
@@ -156,14 +212,23 @@ public class StageManager : MonoBehaviour
 
         Debug.Log($"OnTriggerHit called | Scene: {currentScene} | Correct: {correct} | ConsecutiveCorrect: {consecutiveCorrect} | ConsecutiveWrong: {consecutiveWrong}");
 
+        // 앞/뒤문 성공/실패 로그
+        if (isFrontTrigger && !isGenshou) Debug.Log("앞문 성공");
+        else if (!isFrontTrigger && !isGenshou) Debug.Log("뒷문 실패");
+        else if (!isFrontTrigger && isGenshou) Debug.Log("뒷문 성공");
+        else if (isFrontTrigger && isGenshou) Debug.Log("앞문 실패");
+
         if (correct)
         {
             consecutiveCorrect++;
+            score1 ++; // 성공 점수
+            Debug.Log($"성공! 점수 +1 | 현재 점수: {score1}");
             // 오답 수는 유지
+            UpdateScoreUI(); // UI 갱신
             if (currentStage >= 8)
             {
                 Debug.Log("Stage cleared! Loading Clear scene.");
-                SceneManager.LoadScene("Clear");
+                SceneManager.LoadScene("clearscenereal");
                 return;
             }
 
@@ -175,13 +240,14 @@ public class StageManager : MonoBehaviour
         {
             consecutiveWrong++;
             consecutiveCorrect = 0;
-
+            score2 -= 1; // 실패 점수
+            Debug.Log($"실패! 점수 -1 | 현재 점수: {score2}");
             Debug.Log($"Wrong answer! ConsecutiveWrong: {consecutiveWrong}");
-
+            UpdateScoreUI(); // UI 갱신
             if (consecutiveWrong >= 3)
             {
                 Debug.Log("3회 연속 오답! Loading GameOver scene.");
-                SceneManager.LoadScene("GameOver");
+                SceneManager.LoadScene("gameoverscene");
                 return;
             }
 
@@ -218,5 +284,22 @@ public class StageManager : MonoBehaviour
             }
         }
     }
+    private void UpdateScoreUI()
+    {
+        // score1 UI 표시
+        for (int i = 0; i < score1Sprites.Count; i++)
+        {
+            if (score1Sprites[i] != null)
+                score1Sprites[i].SetActive(i < score1);
+        }
+
+        // score2 UI 표시
+        for (int i = 0; i < score2Sprites.Count; i++)
+        {
+            if (score2Sprites[i] != null)
+                score2Sprites[i].SetActive(i < Mathf.Abs(score2)); // score2가 음수니까 절댓값 사용
+        }
+    }
+
 
 }
