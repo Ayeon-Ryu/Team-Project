@@ -52,7 +52,7 @@ public class gamestartscript : MonoBehaviour
     {// ★ StageManager가 없다면 새로 생성
        
         // 지정된 씬 이름으로 씬을 로드합니다.
-        SceneManager.LoadScene("Stage1Scene");
+        SceneManager.LoadScene("tuscene");
         Debug.Log("씬전환 성공");
     }
 }
