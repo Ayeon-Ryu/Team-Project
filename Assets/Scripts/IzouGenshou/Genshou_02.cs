@@ -4,7 +4,7 @@ public class Genshou_02 : MonoBehaviour
 {
     [SerializeField] private GameObject faceVisual;
     [SerializeField] private Collider faceCollider;
-    private AudioSource bgmSource; //비지엠추가
+    
 
     private bool hasLooked = false;
     private bool destroyed = false;
@@ -12,29 +12,11 @@ public class Genshou_02 : MonoBehaviour
 
     public bool IsActive => isActive;
 
-    void Awake()
-    {
-        // 씬에서 "BGM_Player"라는 이름의 게임 오브젝트를 찾습니다.
-        GameObject bgmObject = GameObject.Find("scream");
-
-        if (bgmObject != null)
-        {
-            // 찾은 오브젝트에서 AudioSource 컴포넌트를 가져옵니다.
-            bgmSource = bgmObject.GetComponent<AudioSource>();
-        }
-        else
-        {
-            Debug.LogError("씬에서 이름이 'BGM_Player'인 오브젝트를 찾을 수 없습니다.");
-        }
-    }
+  
 
     void Start()
     {
-        if (bgmSource != null)
-        {
-            bgmSource.Play();
-            Debug.Log("효과음 02재생");
-        }
+        
         SetSpriteVisible(false);
     }
 

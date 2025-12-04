@@ -2491,7 +2491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4304cb5196d6541b8694b62a1309ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSceneName: Stage1Scene
+  stageManagerPrefab: {fileID: 4054163499164481508, guid: ba5b5c1524a456045b8da06844c2d478, type: 3}
 --- !u!1001 &359005681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12457,7 +12457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4304cb5196d6541b8694b62a1309ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSceneName: SampleScene
+  stageManagerPrefab: {fileID: 0}
 --- !u!1 &1766403281
 GameObject:
   m_ObjectHideFlags: 0

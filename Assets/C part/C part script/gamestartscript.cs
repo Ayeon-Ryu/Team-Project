@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 public class gamestartscript : MonoBehaviour
 {
     // Inspector에서 다음 씬의 이름을 지정합니다. (예: "GameScene", "Level1")
-    
 
+    public GameObject stageManagerPrefab;
     // 버튼 역할을 할 오브젝트에 부여할 태그 이름
     private const string ButtonTag = "gamestartbutton";
 
@@ -36,17 +36,29 @@ public class gamestartscript : MonoBehaviour
 
                 // 4. 버튼이 맞다면 씬 전환 함수 호출
                 LoadNextScene();
+
+
             }
             else
             {
                 // 버튼이 아닌 다른 오브젝트에 닿았을 때 (선택 사항)
                 Debug.Log($"버튼이 아닌 다른 오브젝트({hit.transform.name}) 클릭.");
             }
+
         }
     }
 
     void LoadNextScene()
-    {
+    {// ★ StageManager가 없다면 새로 생성
+        if (StageManager.Instance == null)
+        {
+            Instantiate(stageManagerPrefab);
+            Debug.Log("StageManager Prefab 생성됨!");
+        }
+        else
+        {
+            Debug.Log("이미 StageManager가 존재합니다.");
+        }
         // 지정된 씬 이름으로 씬을 로드합니다.
         SceneManager.LoadScene("Stage1Scene");
         Debug.Log("씬전환 성공");

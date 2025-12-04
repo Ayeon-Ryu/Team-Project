@@ -46,9 +46,10 @@ public class StageManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        EnsurePlayer();
+        
 
         if (SceneManager.GetActiveScene().name.Contains("Stage"))
             StartCoroutine(SetupStage());
@@ -70,7 +71,7 @@ public class StageManager : MonoBehaviour
             if (player != null)
                 Destroy(player.gameObject);
 
-            Destroy(gameObject); // ★ StageManager 완전히 제거
+         
 
             return;
         }
@@ -84,7 +85,7 @@ public class StageManager : MonoBehaviour
             if (player != null)
                 Destroy(player.gameObject);
 
-            Destroy(gameObject); // ★ StageManager 완전히 제거
+            
 
             return;
         }
@@ -98,7 +99,7 @@ public class StageManager : MonoBehaviour
             if (player != null)
                 Destroy(player.gameObject);
 
-            Destroy(gameObject); // ★ StageManager 완전히 제거
+            ResetAll();// ★ StageManager 완전히 제거
 
             return;
         }
@@ -108,6 +109,7 @@ public class StageManager : MonoBehaviour
         {
             StartCoroutine(SetupStage());
         }
+
     }
 
 
@@ -140,11 +142,12 @@ public class StageManager : MonoBehaviour
     {
         yield return null; // 씬 로드 한 프레임 대기
 
-        // Player 확보
-        EnsurePlayer();
+        
 
         // Stage Prefab Instantiate
         LoadRandomStage();
+        // Player 확보
+        EnsurePlayer();
 
         // 항상 현재 Stage / 이상현상 로그
         Debug.Log($"[SetupStage] Current Stage: {currentStage} | {(isGenshou ? $"이상현상 {activeGenshouIndex + 2}" : "정상 스테이지")}");
@@ -364,6 +367,23 @@ public class StageManager : MonoBehaviour
             if (score2Sprites[i] != null)
                 score2Sprites[i].SetActive(i < Mathf.Abs(score2)); // score2가 음수니까 절댓값 사용
         }
+    }
+    public void ResetAll()
+    {
+        // 게임 점수 초기화
+        score1 = 0;
+        score2 = 0;
+
+        // UI 관련 초기화
+        consecutiveCorrect = 0;
+        consecutiveWrong = 0;
+
+        currentStage = 1;
+
+        // UI 갱신
+        UpdateScoreUI();
+
+        Debug.Log("StageManager has been reset.");
     }
 
 
