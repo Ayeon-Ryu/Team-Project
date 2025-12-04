@@ -22,7 +22,7 @@ public class Genshou_03 : MonoBehaviour
         {
             // 찾은 오브젝트에서 AudioSource 컴포넌트를 가져옵니다.
             bgmSource = bgmObject.GetComponent<AudioSource>();
-            Debug.Log("효과음 03재생");
+            
         }
         else
         {
@@ -30,7 +30,14 @@ public class Genshou_03 : MonoBehaviour
         }
     }
 
-    
+    private void Start()
+    {
+        if (bgmSource != null)
+        {
+            bgmSource.Play();
+            Debug.Log("효과음 03재생");
+        }
+    }
 
     private void SetVisualVisible(bool visible)
     {
