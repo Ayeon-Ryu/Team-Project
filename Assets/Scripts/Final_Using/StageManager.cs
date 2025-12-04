@@ -171,6 +171,50 @@ public class StageManager : MonoBehaviour
         currentStageObj.SetActive(true);
 
         Debug.Log($"[LoadRandomStage] Stage {currentStage} | {(isGenshou ? $"이상현상 {activeGenshouIndex + 2}" : "정상 스테이지")}");
+        if (isGenshou && activeGenshouIndex == 0) // 0이 "이상현상 02"라고 가정
+        {
+            GameObject screamObj = GameObject.Find("scream");
+
+            if (screamObj != null)
+            {
+                AudioSource audio = screamObj.GetComponent<AudioSource>();
+                if (audio != null)
+                {
+                    audio.Play();
+                    Debug.Log("이상현상 02 → scream 오디오 재생됨");
+                }
+                else
+                {
+                    Debug.LogWarning("scream 오브젝트에 AudioSource가 없음!");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("씬에서 'scream' 오브젝트를 찾을 수 없음!");
+            }
+        }
+        if (isGenshou && activeGenshouIndex == 1) // 0이 "이상현상 02"라고 가정
+        {
+            GameObject screamObj = GameObject.Find("hill");
+
+            if (screamObj != null)
+            {
+                AudioSource audio = screamObj.GetComponent<AudioSource>();
+                if (audio != null)
+                {
+                    audio.Play();
+                    Debug.Log("이상현상 03 → hill 오디오 재생됨");
+                }
+                else
+                {
+                    Debug.LogWarning("scream 오브젝트에 AudioSource가 없음!");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("씬에서 'scream' 오브젝트를 찾을 수 없음!");
+            }
+        }
     }
 
 
