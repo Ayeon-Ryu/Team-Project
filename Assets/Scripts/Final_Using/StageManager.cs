@@ -11,7 +11,7 @@ public class StageManager : MonoBehaviour
     public int score1 = 0;
     public int score2 = 0;
 
-   
+
     public List<GameObject> score1Sprites; // score1 증가용
     public List<GameObject> score2Sprites; // score2 감소용
     public GameObject bbiui;
@@ -33,11 +33,11 @@ public class StageManager : MonoBehaviour
     private bool isGenshou;
     private int activeGenshouIndex = -1;
 
-   
+
 
     private void Awake()
     {
-       
+
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -49,10 +49,13 @@ public class StageManager : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        
+        // Stage Prefab Instantiate
+        LoadRandomStage();
 
-        if (SceneManager.GetActiveScene().name.Contains("Stage"))
-            StartCoroutine(SetupStage());
+
+
+
+
     }
 
     private void OnDestroy()
@@ -67,11 +70,11 @@ public class StageManager : MonoBehaviour
             Debug.Log("GameOver scene -> StageManager 제거");
 
             // 1) 먼저 커서를 보이게 하기
-            
+
             if (player != null)
                 Destroy(player.gameObject);
 
-         
+
 
             return;
         }
@@ -81,11 +84,11 @@ public class StageManager : MonoBehaviour
         {
             Debug.Log("Clear scene -> StageManager 동작 중지");
             // 1) 먼저 커서를 보이게 하기
-           
+
             if (player != null)
                 Destroy(player.gameObject);
 
-            
+
 
             return;
         }
@@ -95,7 +98,7 @@ public class StageManager : MonoBehaviour
         {
             Debug.Log("Start scene -> StageManager 동작 중지");
             // 1) 먼저 커서를 보이게 하기
-           
+
             if (player != null)
                 Destroy(player.gameObject);
 
@@ -142,7 +145,7 @@ public class StageManager : MonoBehaviour
     {
         yield return null; // 씬 로드 한 프레임 대기
 
-        
+
 
         // Stage Prefab Instantiate
         LoadRandomStage();
@@ -283,7 +286,7 @@ public class StageManager : MonoBehaviour
         if (correct)
         {
             consecutiveCorrect++;
-            score1 ++; // 성공 점수
+            score1++; // 성공 점수
             Debug.Log($"성공! 점수 +1 | 현재 점수: {score1}");
             // 오답 수는 유지
             UpdateScoreUI(); // UI 갱신
@@ -303,7 +306,7 @@ public class StageManager : MonoBehaviour
             consecutiveWrong++;
             consecutiveCorrect = 0;
             score2 -= 1; // 실패 점수
-            
+
             Debug.Log($"실패! 점수 -1 | 현재 점수: {score2}");
             Debug.Log($"Wrong answer! ConsecutiveWrong: {consecutiveWrong}");
             UpdateScoreUI(); // UI 갱신
@@ -343,10 +346,10 @@ public class StageManager : MonoBehaviour
                     currentStage = 1;
                     Debug.Log("Stage2 이후 2회 오답! Loading Stage1Scene-2");
                     SceneManager.LoadScene("Stage1Scene-2");
-                    
-                       
-                        
-                    
+
+
+
+
 
                 }
             }
