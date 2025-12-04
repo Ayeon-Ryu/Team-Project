@@ -33,6 +33,7 @@ public class Genshou_02 : MonoBehaviour
         if (bgmSource != null)
         {
             bgmSource.Play();
+            Debug.Log("효과음 02재생");
         }
         SetSpriteVisible(false);
     }

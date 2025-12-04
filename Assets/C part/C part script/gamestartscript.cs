@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class gamestartscript : MonoBehaviour
 {
     // Inspector에서 다음 씬의 이름을 지정합니다. (예: "GameScene", "Level1")
-    public string targetSceneName = "SampleScene";
+    
 
     // 버튼 역할을 할 오브젝트에 부여할 태그 이름
     private const string ButtonTag = "gamestartbutton";
@@ -48,6 +48,7 @@ public class gamestartscript : MonoBehaviour
     void LoadNextScene()
     {
         // 지정된 씬 이름으로 씬을 로드합니다.
-        SceneManager.LoadScene(targetSceneName);
+        SceneManager.LoadScene("Stage1Scene");
+        Debug.Log("씬전환 성공");
     }
 }

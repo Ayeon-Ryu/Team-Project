@@ -22,6 +22,7 @@ public class Genshou_03 : MonoBehaviour
         {
             // 찾은 오브젝트에서 AudioSource 컴포넌트를 가져옵니다.
             bgmSource = bgmObject.GetComponent<AudioSource>();
+            Debug.Log("효과음 03재생");
         }
         else
         {
